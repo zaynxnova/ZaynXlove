@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🎂 Happy Birthday, Ayesha ❤️</title>
+    <title>🎂 Happy Birthday 🎂❤️</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;400;500;600&display=swap" rel="stylesheet" />
@@ -58,7 +58,7 @@
             letter-spacing: 0.02em;
         }
         .hero-title {
-            font-size: 3.8rem;
+            font-size: 4rem;
             line-height: 1.1;
             background: linear-gradient(145deg, #b64a3a, #d47a6a);
             -webkit-background-clip: text;
@@ -69,7 +69,7 @@
             font-weight: 700;
         }
         .hero-sub {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             font-weight: 400;
             color: #a45a4a;
             font-family: 'Playfair Display', serif;
@@ -77,25 +77,6 @@
             border-bottom: 2px dashed #eab8ae;
             padding-bottom: 1.2rem;
             margin-bottom: 1.5rem;
-        }
-        .countdown-badge {
-            display: inline-block;
-            background: rgba(255, 235, 225, 0.6);
-            backdrop-filter: blur(4px);
-            padding: 0.8rem 2rem;
-            border-radius: 60px;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #7a3f34;
-            border: 1px solid #fad4ca;
-            margin-top: 0.5rem;
-            box-shadow: 0 8px 20px rgba(180, 80, 70, 0.08);
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 1px;
-        }
-        .countdown-badge span {
-            font-weight: 700;
-            color: #b24a3a;
         }
         .glass-card {
             background: rgba(255, 245, 242, 0.45);
@@ -351,6 +332,8 @@
         .heart-reveal-card .close-btn:hover {
             background: #c06a5a;
         }
+
+        /* Cute speech */
         .bubble-wrapper {
             display: flex;
             justify-content: center;
@@ -383,22 +366,84 @@
             margin-left: 0.5rem;
             font-size: 2.2rem;
         }
+
+        /* Birthday Letter (Wish) - enhanced */
+        .letter-wrapper {
+            position: relative;
+            padding: 0.5rem;
+            border-radius: 3rem;
+            background: linear-gradient(135deg, #fad4ca, #fceaea, #fad4ca);
+            background-size: 200% 200%;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
         .letter-text {
             font-size: 1.15rem;
             line-height: 1.9;
             color: #3e2a24;
             font-weight: 300;
-            background: rgba(255, 245, 240, 0.3);
+            background: rgba(255, 245, 240, 0.7);
+            backdrop-filter: blur(6px);
             padding: 1.8rem 2rem;
             border-radius: 2.5rem;
             border-left: 5px solid #e8b4a8;
             font-style: italic;
+            position: relative;
         }
         .letter-text strong {
             font-style: normal;
             color: #b24a3a;
             font-weight: 600;
         }
+        .wish-btn {
+            background: linear-gradient(145deg, #f0c0b4, #d48778);
+            border: none;
+            padding: 0.8rem 2.5rem;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #2d1c18;
+            box-shadow: 0 10px 25px rgba(180, 80, 70, 0.25);
+            cursor: pointer;
+            transition: 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            margin-top: 1.5rem;
+            letter-spacing: 1px;
+        }
+        .wish-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(180, 70, 60, 0.35);
+        }
+        .wish-reveal {
+            margin-top: 1.5rem;
+            font-size: 1.4rem;
+            font-family: 'Playfair Display', serif;
+            color: #7a3f34;
+            min-height: 4rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.6s ease;
+            background: rgba(255, 235, 225, 0.3);
+            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid #fad4ca;
+        }
+        .wish-reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Proposal */
         .proposal-btn {
             background: linear-gradient(145deg, #e8b4a8, #d48778);
             border: none;
@@ -462,7 +507,6 @@
         .hidden {
             display: none !important;
         }
-
         @media (max-width: 700px) {
             .container {
                 padding: 1.5rem 1.2rem;
@@ -561,23 +605,11 @@
 
     <div class="container">
 
-        <!-- ===== HERO ===== -->
+        <!-- ===== HERO (always Birthday) ===== -->
         <section id="hero" style="text-align: center; padding-top: 0.2rem;">
-            <div id="heroBirthday" class="hidden">
-                <h1 class="hero-title">🎂 Happy Birthday, Ayesha ❤️</h1>
-                <div class="hero-sub">“To my beautiful Bandriii 🐒❤️”</div>
-                <div style="font-size: 1.6rem; color: #b46a5a; margin-top: -0.2rem; letter-spacing: 3px; font-weight: 300;">✨ forever mine ✨</div>
-            </div>
-            <div id="heroCountdown">
-                <h1 class="hero-title" style="font-size: 3.2rem;">✨ Something Special Coming Soon... ✨</h1>
-                <div class="hero-sub" style="font-size: 2.2rem;">💖 Find My Heart 💖</div>
-                <div class="countdown-badge">
-                    🕊️ <span id="countdownDisplay">Loading...</span>
-                </div>
-                <div style="margin-top: 0.8rem; font-size: 1.1rem; color: #7a4f44; opacity: 0.8;">
-                    <span id="daysSinceMeet">--</span> days since we met ❤️
-                </div>
-            </div>
+            <h1 class="hero-title">🎂 Happy Birthday, Ayesha ❤️</h1>
+            <div class="hero-sub">“To my beautiful Bandriii 🐒❤️”</div>
+            <div style="font-size: 1.6rem; color: #b46a5a; margin-top: -0.2rem; letter-spacing: 3px; font-weight: 300;">✨ forever mine ✨</div>
         </section>
 
         <!-- ===== OUR JOURNEY ===== -->
@@ -592,9 +624,12 @@
                 <div class="timeline-item"><span>💕 first “I love you”</span> — 14-02-2022</div>
                 <div class="timeline-item"><span>🐒 Bandriii forever</span> — every day since</div>
             </div>
+            <div style="margin-top: 1.2rem; font-size: 1rem; color: #7a4f44; opacity: 0.7;">
+                <span id="daysSinceMeet">--</span> days of love ❤️
+            </div>
         </section>
 
-        <!-- ===== FIND MY HEART (PUZZLE) ===== -->
+        <!-- ===== FIND MY HEART (PUZZLE) - BEFORE WISH ===== -->
         <section class="glass-card" style="text-align: center;">
             <h2 style="font-size: 2.2rem; color: #6a3d34;">💖 Find My Heart</h2>
             <div class="section-divider" style="margin: 0.5rem auto 2rem;"></div>
@@ -622,14 +657,23 @@
             </div>
         </section>
 
-        <!-- ===== BIRTHDAY LETTER ===== -->
-        <section class="glass-card">
-            <h2 style="font-size: 2.2rem; color: #6a3d34;">💌 Birthday Letter</h2>
+        <!-- ===== BIRTHDAY LETTER (WISH) - ENHANCED ===== -->
+        <section class="glass-card" id="letterSection">
+            <h2 style="font-size: 2.2rem; color: #6a3d34;">💌 Birthday Wish</h2>
             <div class="section-divider"></div>
-            <div class="letter-text">
-                <strong>My dearest Bandriii 🐒❤️,</strong> <br /><br />
-                On this beautiful day, my heart overflows with gratitude for every laugh, every tear, and every moment we’ve shared. You are the most radiant soul I know, and I thank Allah for bringing you into my life. I pray that this year brings you boundless happiness, vibrant health, and success in everything you dream of. <br /><br />
-                You deserve the world, and I hope to spend my days giving you a piece of it. Thank you for being you — wild, loving, and uniquely <strong>Bandriii</strong>. I love you more than words can hold. 🤍
+            <div class="letter-wrapper">
+                <div class="letter-text">
+                    <strong>My dearest Bandriii 🐒❤️,</strong> <br /><br />
+                    On this beautiful day, my heart overflows with gratitude for every laugh, every tear, and every moment we’ve shared. You are the most radiant soul I know, and I thank Allah for bringing you into my life. I pray that this year brings you boundless happiness, vibrant health, and success in everything you dream of. <br /><br />
+                    You deserve the world, and I hope to spend my days giving you a piece of it. Thank you for being you — wild, loving, and uniquely <strong>Bandriii</strong>. I love you more than words can hold. 🤍
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 1.2rem;">
+                <button class="wish-btn" id="wishBtn">✨ Make a Wish ✨</button>
+                <div class="wish-reveal" id="wishReveal">
+                    🌟 Your wish has been sent to the stars... <br>
+                    <span style="font-size: 1.8rem; display: inline-block; margin-top: 0.3rem;">💫 May all your dreams come true, my love. 💫</span>
+                </div>
             </div>
         </section>
 
@@ -677,7 +721,7 @@
         🕊️ <span>Bandriii 🐒❤️</span> — my heart, my home.
     </div>
 
-    <!-- Overlay -->
+    <!-- Overlay for special heart -->
     <div class="heart-reveal-overlay" id="heartRevealOverlay">
         <div class="heart-reveal-card">
             <div class="big-heart">🫀</div>
@@ -771,40 +815,11 @@
             }
             animateParticles();
 
-            // ===== COUNTDOWN (FIXED) =====
-            const TARGET = new Date(2026, 6, 29, 0, 0, 0).getTime(); // July 29, 2026
+            // ===== DAYS SINCE MEET =====
             const MEET = new Date(2021, 10, 11).getTime();
-
-            const heroBirthday = document.getElementById('heroBirthday');
-            const heroCountdown = document.getElementById('heroCountdown');
-            const countdownDisplay = document.getElementById('countdownDisplay');
-            const daysSinceMeetEl = document.getElementById('daysSinceMeet');
-
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const diff = TARGET - now;
-
-                // Days since meet
-                const meetDiff = now - MEET;
-                const daysMeet = Math.floor(meetDiff / (1000 * 60 * 60 * 24));
-                daysSinceMeetEl.textContent = daysMeet >= 0 ? daysMeet : 0;
-
-                if (diff <= 0) {
-                    heroBirthday.classList.remove('hidden');
-                    heroCountdown.classList.add('hidden');
-                    return;
-                }
-
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const secs = Math.floor((diff % (1000 * 60)) / 1000);
-                countdownDisplay.textContent =
-                    `${days}d ${String(hours).padStart(2, '0')}h ${String(mins).padStart(2, '0')}m ${String(secs).padStart(2, '0')}s`;
-            }
-
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
+            const now = new Date().getTime();
+            const daysMeet = Math.floor((now - MEET) / (1000 * 60 * 60 * 24));
+            document.getElementById('daysSinceMeet').textContent = daysMeet >= 0 ? daysMeet : 0;
 
             // ===== HEART PUZZLE =====
             const puzzleData = [
@@ -892,6 +907,34 @@
                 if (e.target === this) this.classList.remove('open');
             });
 
+            // ===== WISH BUTTON (Make a Wish) =====
+            const wishBtn = document.getElementById('wishBtn');
+            const wishReveal = document.getElementById('wishReveal');
+            wishBtn.addEventListener('click', function() {
+                wishReveal.classList.toggle('show');
+                if (wishReveal.classList.contains('show')) {
+                    // burst of hearts and stars
+                    for (let i = 0; i < 50; i++) {
+                        setTimeout(() => {
+                            const p = new HeartParticle();
+                            p.x = Math.random() * width;
+                            p.y = height * 0.4 + Math.random() * 200;
+                            p.size = 18 + Math.random() * 35;
+                            p.speedY = -1.5 - Math.random() * 2.5;
+                            p.speedX = (Math.random() - 0.5) * 4;
+                            p.opacity = 0.9;
+                            p.life = 0.9;
+                            p.decay = 0.002;
+                            p.heartChar = ['❤️','💖','✨','🌟','💫','🩷'][Math.floor(Math.random()*6)];
+                            particles.push(p);
+                        }, i * 30);
+                    }
+                    wishBtn.textContent = '✨ Wish Granted ✨';
+                } else {
+                    wishBtn.textContent = '✨ Make a Wish ✨';
+                }
+            });
+
             // ===== PROPOSAL =====
             document.getElementById('proposalBtn').addEventListener('click', function() {
                 for (let i = 0; i < 40; i++) {
@@ -919,4 +962,4 @@
         })();
     </script>
 </body>
-</html>
+</html>a
