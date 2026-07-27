@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎂 Happy Birthday, Ayesha ❤️</title>
+  <!-- Google Fonts (Elegant serif + sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fceaea;
+      background-image: radial-gradient(circle at 20% 30%, #fff0ee 0%, #fdd9d4 100%);
+      min-height: 100vh;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      scroll-behavior: smooth;
+      color: #3e2a2a;
+    }
+
+    /* main container with glassmorphism glow */
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(255, 245, 243, 0.40);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 3.5rem;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 30px 50px rgba(180, 80, 70, 0.15), 0 0 0 1px rgba(255, 215, 200, 0.5);
+      border: 1px solid rgba(255, 220, 210, 0.5);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* floating hearts & particles (canvas) */
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* all content sits above canvas */
+    .container, .footer-note {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* headings */
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title {
+      font-size: 3.2rem;
+      line-height: 1.2;
+      background: linear-gradient(145deg, #b64a3a, #d47a6a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 4px 20px rgba(200, 90, 70, 0.2);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-sub {
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: #a45a4a;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      border-bottom: 2px dashed #eab8ae;
+      padding-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* glass cards */
+    .glass-card {
+      background: rgba(255, 245, 242, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 2.5rem;
+      padding: 1.8rem 2rem;
+      margin: 2.2rem 0;
+      box-shadow: 0 15px 35px -8px rgba(140, 70, 60, 0.15), 0 0 0 1px rgba(255, 215, 200, 0.4);
+      border: 1px solid rgba(255, 220, 210, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 45px -10px rgba(150, 70, 60, 0.2);
+    }
+
+    /* timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      padding-left: 1rem;
+      border-left: 4px solid #e8b4a8;
+      margin-top: 1rem;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #4d2e2a;
+      opacity: 0.9;
+      animation: fadeSlide 0.6s ease forwards;
+      opacity: 0;
+    }
+
+    .timeline-item::before {
+      content: "✦";
+      color: #c76b5a;
+      font-size: 1.6rem;
+      margin-right: 0.2rem;
+    }
+
+    .timeline-item span {
+      font-weight: 500;
+      background: linear-gradient(135deg, #b24a3a, #d47a6a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-family: 'Playfair Display', serif;
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateX(-10px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.3s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.5s; }
+
+    /* speech bubble */
+    .bubble-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0 1rem;
+    }
+
+    .speech-bubble {
+      background: rgba(255, 235, 230, 0.75);
+      backdrop-filter: blur(4px);
+      padding: 1.8rem 2.8rem;
+      border-radius: 200px 200px 200px 20px;
+      font-size: 1.9rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: #7a3f34;
+      box-shadow: 0 12px 30px rgba(200, 100, 80, 0.2);
+      border: 1px solid #fad4ca;
+      position: relative;
+      animation: floatBubble 4s infinite alternate ease-in-out;
+      display: inline-block;
+    }
+
+    @keyframes floatBubble {
+      0% { transform: translateY(0px) rotate(-0.5deg); }
+      100% { transform: translateY(-8px) rotate(0.5deg); }
+    }
+
+    .speech-bubble::after {
+      content: "😂❤️";
+      margin-left: 0.4rem;
+      font-size: 2rem;
+    }
+
+    /* letter */
+    .letter-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #3e2a24;
+      font-weight: 300;
+      background: rgba(255, 245, 240, 0.3);
+      padding: 1.5rem 1.8rem;
+      border-radius: 2rem;
+      border-left: 4px solid #e8b4a8;
+      font-style: italic;
+    }
+
+    .letter-text strong {
+      font-style: normal;
+      color: #b24a3a;
+      font-weight: 600;
+    }
+
+    /* proposal button */
+    .proposal-btn {
+      background: linear-gradient(145deg, #e8b4a8, #d48778);
+      border: none;
+      padding: 1rem 2.8rem;
+      border-radius: 60px;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #2d1c18;
+      box-shadow: 0 12px 28px rgba(180, 80, 70, 0.3);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 215, 200, 0.5);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-family: 'Playfair Display', serif;
+      margin: 1.2rem 0 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .proposal-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 18px 35px rgba(180, 70, 60, 0.4);
+      background: linear-gradient(145deg, #f0c0b4, #d48778);
+    }
+
+    .proposal-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* confetti / hearts container */
+    #proposal-feedback {
+      margin-top: 1.2rem;
+      font-size: 1.8rem;
+      font-family: 'Playfair Display', serif;
+      color: #7a3f34;
+      min-height: 4rem;
+      text-align: center;
+      background: rgba(255, 235, 228, 0.3);
+      border-radius: 60px;
+      padding: 0.8rem 1.5rem;
+      backdrop-filter: blur(2px);
+      border: 1px solid #fad4ca;
+      transition: all 0.5s ease;
+    }
+
+    .footer-note {
+      margin-top: 3rem;
+      font-size: 1.7rem;
+      font-family: 'Playfair Display', serif;
+      color: #5a3a34;
+      text-align: center;
+      background: rgba(255, 245, 242, 0.3);
+      backdrop-filter: blur(3px);
+      padding: 1.2rem 2rem;
+      border-radius: 80px;
+      border: 1px solid rgba(255, 215, 200, 0.4);
+      width: fit-content;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-note span {
+      color: #b24a3a;
+      font-weight: 600;
+    }
+
+    /* responsive */
+    @media (max-width: 640px) {
+      .container {
+        padding: 1.2rem 1rem;
+        border-radius: 2rem;
+      }
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      .hero-sub {
+        font-size: 1.3rem;
+      }
+      .speech-bubble {
+        font-size: 1.5rem;
+        padding: 1.2rem 1.8rem;
+        border-radius: 100px 100px 100px 20px;
+      }
+      .glass-card {
+        padding: 1.2rem 1rem;
+        margin: 1.8rem 0;
+      }
+      .proposal-btn {
+        font-size: 1.0rem;
+        padding: 0.8rem 1.8rem;
+        white-space: normal;
+      }
+      .footer-note {
+        font-size: 1.3rem;
+        padding: 0.8rem 1rem;
+      }
+      .letter-text {
+        font-size: 1rem;
+        padding: 1.2rem;
+      }
+    }
+
+    /* extra decoration */
+    .gold-dot {
+      color: #c49a7a;
+      margin: 0 0.2rem;
+    }
+
+    .glow-text {
+      text-shadow: 0 0 20px rgba(200, 130, 110, 0.15);
+    }
+
+    /* scroll smooth */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* hover hearts (floating) via pseudo */
+    .floating-heart-bg {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.05;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .section-divider {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #eab8ae, #d48778, #eab8ae);
+      margin: 0.5rem 0 1.8rem;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particle canvas for floating hearts & glow -->
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <section id="hero" style="text-align: center; padding-top: 0.5rem;">
+      <h1 class="hero-title">🎂 Happy Birthday, Ayesha ❤️</h1>
+      <div class="hero-sub">“To my beautiful Bandriii 🐒❤️”</div>
+      <div style="font-size: 1.5rem; color: #b46a5a; margin-top: -0.2rem; letter-spacing: 2px;">✨ forever mine ✨</div>
+    </section>
+
+    <!-- OUR JOURNEY -->
+    <section class="glass-card">
+      <h2 style="font-size: 2rem; color: #6a3d34;">❤️ Our Journey</h2>
+      <div class="section-divider"></div>
+      <div style="font-size: 1.4rem; font-weight: 400; margin-bottom: 1rem; color: #4d2e2a;">
+        We met on: <span style="background: linear-gradient(145deg,#b24a3a,#d47a6a); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600;">11-11-2021 ❤️</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item"><span>✨ first hello</span> — 11-11-2021</div>
+        <div class="timeline-item"><span>🌷 first date</span> — 20-12-2021</div>
+        <div class="timeline-item"><span>💕 first “I love you”</span> — 14-02-2022</div>
+        <div class="timeline-item"><span>🐒 Bandriii forever</span> — every day since</div>
+      </div>
+    </section>
+
+    <!-- CUTE MEMORIES -->
+    <section class="glass-card" style="text-align: center;">
+      <h2 style="font-size: 2rem; color: #6a3d34;">😂 Cute Memories</h2>
+      <div class="section-divider" style="margin: 0.5rem auto 1.8rem;"></div>
+      <div class="bubble-wrapper">
+        <div class="speech-bubble">“Monh tor don giii!”</div>
+      </div>
+      <div style="font-size: 1.2rem; color: #7a4f44; margin-top: 0.2rem; font-style: italic; background: rgba(255,225,215,0.3); border-radius: 40px; padding: 0.3rem 1.5rem; display: inline-block;">
+        🤪 my favourite dialogue
+      </div>
+    </section>
+
+    <!-- BIRTHDAY LETTER -->
+    <section class="glass-card">
+      <h2 style="font-size: 2rem; color: #6a3d34;">💌 Birthday Letter</h2>
+      <div class="section-divider"></div>
+      <div class="letter-text">
+        <strong>My dearest Bandriii 🐒❤️,</strong> <br /><br />
+        On this beautiful day, my heart overflows with gratitude for every laugh, every tear, and every moment we’ve shared. You are the most radiant soul I know, and I thank Allah for bringing you into my life. I pray that this year brings you boundless happiness, vibrant health, and success in everything you dream of. <br /><br />
+        You deserve the world, and I hope to spend my days giving you a piece of it. Thank you for being you — wild, loving, and uniquely <strong>Bandriii</strong>. I love you more than words can hold. 🤍
+      </div>
+    </section>
+
+    <!-- FUTURE TOGETHER (marriage promise) -->
+    <section class="glass-card">
+      <h2 style="font-size: 2rem; color: #6a3d34;">🤲 Future Together</h2>
+      <div class="section-divider"></div>
+      <div style="font-size: 1.1rem; line-height: 1.8; font-weight: 300; background: rgba(255,245,240,0.3); padding: 1.5rem; border-radius: 2rem;">
+        <p style="margin-bottom: 1rem;">
+          With all my heart, I pray that if Allah has written it in our destiny, we will one day marry in the most beautiful, halal way. I promise to always respect you, cherish you, and stand by you as your partner in this life and the next.
+        </p>
+        <p style="font-style: italic; color: #7a4f44;">
+          “And We created you in pairs.” (Quran 78:8) — may we be among them. 🤍
+        </p>
+        <p style="margin-top: 0.8rem; font-weight: 400; color: #9a5a4a;">
+          I look forward to the day we say “Qubool” and begin our forever. InshaAllah. 🤲
+        </p>
+      </div>
+    </section>
+
+    <!-- PROPOSAL SECTION -->
+    <section class="glass-card" style="text-align: center;">
+      <h2 style="font-size: 2rem; color: #6a3d34;">💍 Proposal</h2>
+      <div class="section-divider" style="margin: 0.5rem auto 1.5rem;"></div>
+      <button id="proposalBtn" class="proposal-btn">💍 Will You Marry Me When the Time Is Right?</button>
+      <div id="proposal-feedback">
+        <span style="opacity: 0.6;">click the ring 💕</span>
+      </div>
+    </section>
+
+    <!-- FINAL SECTION -->
+    <section style="text-align: center; margin: 1.8rem 0 0.5rem;">
+      <div style="font-size: 2.4rem; font-family: 'Playfair Display', serif; color: #6a3d34; line-height: 1.4;">
+        Happy Birthday, My Bandriii ❤️
+      </div>
+      <div style="font-size: 1.8rem; font-family: 'Playfair Display', serif; color: #b46a5a; margin-top: 0.3rem; letter-spacing: 1px;">
+        Forever Yours, Zaheer 🤍
+      </div>
+      <div style="margin-top: 1rem; font-size: 1.2rem; color: #b27a6a; opacity: 0.7;">✨ always & forever ✨</div>
+    </section>
+
+  </div> <!-- end container -->
+
+  <div class="footer-note">
+    🕊️ <span>Bandriii 🐒❤️</span> — my heart, my home.
+  </div>
+
+  <script>
+    (function() {
+      // ---- Floating hearts + particles (canvas) ----
+      const canvas = document.getElementById('particles-canvas');
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+
+      function resizeCanvas() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      class HeartParticle {
+        constructor() {
+          this.reset();
+        }
+        reset() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height * 1.2 - height * 0.1;
+          this.size = Math.random() * 20 + 10;
+          this.speedX = (Math.random() - 0.5) * 0.8;
+          this.speedY = -Math.random() * 0.7 - 0.3;
+          this.opacity = Math.random() * 0.6 + 0.15;
+          this.rotation = Math.random() * 360;
+          this.rotateSpeed = (Math.random() - 0.5) * 0.02;
+          this.life = 1;
+          this.decay = 0.0008 + Math.random() * 0.002;
+          this.heartChar = ['❤️', '🩷', '♥️', '💕', '💗'][Math.floor(Math.random() * 5)];
+        }
+        update() {
+          this.x += this.speedX + Math.sin(this.y * 0.01) * 0.2;
+          this.y += this.speedY;
+          this.rotation += this.rotateSpeed;
+          this.life -= this.decay;
+          if (this.life <= 0 || this.y < -50 || this.y > height + 50) {
+            this.reset();
+            this.y = height + 20 + Math.random() * 30;
+            this.life = 0.8 + Math.random() * 0.3;
+          }
+        }
+        draw() {
+          ctx.save();
+          ctx.translate(this.x, this.y);
+          ctx.rotate(this.rotation);
+          ctx.font = `${this.size}px serif`;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.globalAlpha = this.opacity * this.life;
+          ctx.fillText(this.heartChar, 0, 0);
+          ctx.restore();
+        }
+      }
+
+      // init particles
+      const particleCount = 40;
+      for (let i = 0; i < particleCount; i++) {
+        const p = new HeartParticle();
+        p.y = Math.random() * height;
+        p.life = 0.5 + Math.random() * 0.5;
+        particles.push(p);
+      }
+
+      // glow particles (extra sparkle)
+      function drawGlowParticles() {
+        // small golden dots floating
+        ctx.shadowColor = '#eab8ae';
+        ctx.shadowBlur = 30;
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, width, height);
+        // draw hearts
+        for (let p of particles) {
+          p.update();
+          p.draw();
+        }
+        // extra little sparkles
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = '#f5c8b8';
+        for (let i = 0; i < 15; i++) {
+          const x = (Math.sin(Date.now() * 0.001 + i * 2) * 0.5 + 0.5) * width;
+          const y = (Math.cos(Date.now() * 0.0013 + i * 1.7) * 0.5 + 0.5) * height;
+          ctx.beginPath();
+          ctx.arc(x, y, 2 + Math.sin(Date.now() * 0.005 + i) * 1, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 215, 190, ${0.2 + Math.sin(Date.now() * 0.003 + i) * 0.1})`;
+          ctx.shadowBlur = 25;
+          ctx.fill();
+        }
+        ctx.shadowBlur = 0;
+        requestAnimationFrame(animateParticles);
+      }
+      animateParticles();
+
+      // ---- Proposal button logic ----
+      const proposalBtn = document.getElementById('proposalBtn');
+      const feedbackDiv = document.getElementById('proposal-feedback');
+
+      function triggerProposal() {
+        // hearts flood (add extra hearts to canvas)
+        for (let i = 0; i < 30; i++) {
+          const p = new HeartParticle();
+          p.x = Math.random() * width;
+          p.y = height * 0.7 + Math.random() * 100;
+          p.size = 16 + Math.random() * 28;
+          p.speedY = -1.2 - Math.random() * 2;
+          p.speedX = (Math.random() - 0.5) * 1.8;
+          p.opacity = 0.7 + Math.random() * 0.3;
+          p.life = 0.9 + Math.random() * 0.4;
+          p.decay = 0.001 + Math.random() * 0.003;
+          particles.push(p);
+        }
+        // confetti effect (simulated with colored hearts)
+        for (let i = 0; i < 25; i++) {
+          const p = new HeartParticle();
+          p.x = width * 0.2 + Math.random() * width * 0.6;
+          p.y = height * 0.3 + Math.random() * 100;
+          p.size = 12 + Math.random() * 20;
+          p.speedY = -2 - Math.random() * 3;
+          p.speedX = (Math.random() - 0.5) * 3.5;
+          p.opacity = 0.9;
+          p.life = 0.8 + Math.random() * 0.4;
+          p.decay = 0.0015 + Math.random() * 0.003;
+          p.heartChar = ['❤️','💖','💝','✨','🌟','💫'][Math.floor(Math.random()*6)];
+          particles.push(p);
+        }
+
+        feedbackDiv.innerHTML = '💖 InshaAllah... One Day, Forever Together. ❤️';
+        feedbackDiv.style.background = 'rgba(255, 235, 225, 0.7)';
+        feedbackDiv.style.borderColor = '#d48778';
+        feedbackDiv.style.transform = 'scale(1.02)';
+        setTimeout(() => feedbackDiv.style.transform = 'scale(1)', 300);
+        // extra sparkle
+        for (let i=0; i<10; i++) {
+          setTimeout(() => {
+            const p = new HeartParticle();
+            p.x = Math.random() * width;
+            p.y = Math.random() * height;
+            p.size = 20+Math.random()*30;
+            p.speedY = -1.5;
+            p.life = 0.7;
+            particles.push(p);
+          }, i*80);
+        }
+      }
+
+      proposalBtn.addEventListener('click', triggerProposal);
+
+      // also trigger on touch for mobile
+      proposalBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        triggerProposal();
+      });
+
+    })();
+  </script>
+</body>
+</html>
