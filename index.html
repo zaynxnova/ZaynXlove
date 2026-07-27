@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🎂 Happy Birthday, Ayesha ❤️</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;400;500;600&display=swap" rel="stylesheet" />
@@ -14,7 +13,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Inter', sans-serif;
             background: #fceaea;
@@ -28,7 +26,6 @@
             color: #3e2a2a;
             position: relative;
         }
-
         #particles-canvas {
             position: fixed;
             top: 0;
@@ -38,7 +35,6 @@
             pointer-events: none;
             z-index: 0;
         }
-
         .container {
             max-width: 1000px;
             width: 100%;
@@ -54,7 +50,6 @@
             z-index: 2;
             margin-bottom: 2rem;
         }
-
         h1,
         h2,
         h3 {
@@ -62,8 +57,6 @@
             font-weight: 600;
             letter-spacing: 0.02em;
         }
-
-        /* ----- HERO ----- */
         .hero-title {
             font-size: 3.8rem;
             line-height: 1.1;
@@ -91,19 +84,19 @@
             backdrop-filter: blur(4px);
             padding: 0.8rem 2rem;
             border-radius: 60px;
-            font-size: 1.3rem;
-            font-weight: 500;
+            font-size: 1.5rem;
+            font-weight: 600;
             color: #7a3f34;
             border: 1px solid #fad4ca;
             margin-top: 0.5rem;
             box-shadow: 0 8px 20px rgba(180, 80, 70, 0.08);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 1px;
         }
         .countdown-badge span {
             font-weight: 700;
             color: #b24a3a;
         }
-
-        /* ----- GLASS CARDS ----- */
         .glass-card {
             background: rgba(255, 245, 242, 0.45);
             backdrop-filter: blur(10px);
@@ -126,8 +119,6 @@
             margin: 0.5rem 0 2rem;
             border-radius: 10px;
         }
-
-        /* ----- TIMELINE ----- */
         .timeline {
             display: flex;
             flex-direction: column;
@@ -180,7 +171,7 @@
             animation-delay: 0.5s;
         }
 
-        /* ----- HEART PUZZLE (Find My Heart) ----- */
+        /* Puzzle */
         .puzzle-grid {
             display: flex;
             flex-wrap: wrap;
@@ -247,8 +238,6 @@
             opacity: 0.7;
             margin-top: 2px;
         }
-
-        /* Special Heart (🫀) */
         .special-heart-wrapper {
             display: flex;
             justify-content: center;
@@ -291,8 +280,6 @@
                 box-shadow: 0 0 50px rgba(200, 100, 80, 0.5), 0 0 80px rgba(200, 100, 80, 0.15);
             }
         }
-
-        /* Reveal modal / overlay */
         .heart-reveal-overlay {
             position: fixed;
             top: 0;
@@ -364,8 +351,6 @@
         .heart-reveal-card .close-btn:hover {
             background: #c06a5a;
         }
-
-        /* ----- OTHER SECTIONS (speech bubble, letter, etc) ----- */
         .bubble-wrapper {
             display: flex;
             justify-content: center;
@@ -474,8 +459,10 @@
             color: #b24a3a;
             font-weight: 600;
         }
+        .hidden {
+            display: none !important;
+        }
 
-        /* ----- RESPONSIVE ----- */
         @media (max-width: 700px) {
             .container {
                 padding: 1.5rem 1.2rem;
@@ -566,24 +553,15 @@
                 font-size: 1.2rem;
             }
         }
-
-        /* Utility */
-        .hidden {
-            display: none !important;
-        }
-        .glow-text {
-            text-shadow: 0 0 30px rgba(200, 130, 110, 0.15);
-        }
     </style>
 </head>
 <body>
 
-    <!-- Canvas for particles -->
     <canvas id="particles-canvas"></canvas>
 
-    <div class="container" id="appContainer">
+    <div class="container">
 
-        <!-- ============ HERO ============ -->
+        <!-- ===== HERO ===== -->
         <section id="hero" style="text-align: center; padding-top: 0.2rem;">
             <div id="heroBirthday" class="hidden">
                 <h1 class="hero-title">🎂 Happy Birthday, Ayesha ❤️</h1>
@@ -602,7 +580,7 @@
             </div>
         </section>
 
-        <!-- ============ OUR JOURNEY ============ -->
+        <!-- ===== OUR JOURNEY ===== -->
         <section class="glass-card">
             <h2 style="font-size: 2.2rem; color: #6a3d34;">❤️ Our Journey</h2>
             <div class="section-divider"></div>
@@ -612,4 +590,333 @@
             <div class="timeline">
                 <div class="timeline-item"><span>✨ first hello</span> — 11-11-2021</div>
                 <div class="timeline-item"><span>💕 first “I love you”</span> — 14-02-2022</div>
-                <div class="timeline-item"><span>🐒 Bandriii forever</span> — every day sinc
+                <div class="timeline-item"><span>🐒 Bandriii forever</span> — every day since</div>
+            </div>
+        </section>
+
+        <!-- ===== FIND MY HEART (PUZZLE) ===== -->
+        <section class="glass-card" style="text-align: center;">
+            <h2 style="font-size: 2.2rem; color: #6a3d34;">💖 Find My Heart</h2>
+            <div class="section-divider" style="margin: 0.5rem auto 2rem;"></div>
+            <p style="font-size: 1.2rem; font-weight: 300; color: #4d2e2a; margin-bottom: 1rem;">
+                Tap each heart to reveal a letter. Collect them all!
+            </p>
+            <div class="puzzle-grid" id="puzzleGrid"></div>
+            <div class="special-heart-wrapper" id="specialHeartWrapper">
+                <button class="special-heart-btn" id="specialHeartBtn">🫀</button>
+            </div>
+            <div style="margin-top: 0.5rem; font-size: 0.95rem; color: #7a4f44; opacity: 0.7;" id="puzzleHint">
+                Collect all 6 hearts to unlock the special one!
+            </div>
+        </section>
+
+        <!-- ===== CUTE MEMORIES ===== -->
+        <section class="glass-card" style="text-align: center;">
+            <h2 style="font-size: 2.2rem; color: #6a3d34;">😂 Cute Memories</h2>
+            <div class="section-divider" style="margin: 0.5rem auto 2rem;"></div>
+            <div class="bubble-wrapper">
+                <div class="speech-bubble">“Monh tor don giii!”</div>
+            </div>
+            <div style="font-size: 1.3rem; color: #7a4f44; margin-top: 0.5rem; font-style: italic; background: rgba(255,225,215,0.3); border-radius: 50px; padding: 0.4rem 2rem; display: inline-block;">
+                🤪 my favourite dialogue
+            </div>
+        </section>
+
+        <!-- ===== BIRTHDAY LETTER ===== -->
+        <section class="glass-card">
+            <h2 style="font-size: 2.2rem; color: #6a3d34;">💌 Birthday Letter</h2>
+            <div class="section-divider"></div>
+            <div class="letter-text">
+                <strong>My dearest Bandriii 🐒❤️,</strong> <br /><br />
+                On this beautiful day, my heart overflows with gratitude for every laugh, every tear, and every moment we’ve shared. You are the most radiant soul I know, and I thank Allah for bringing you into my life. I pray that this year brings you boundless happiness, vibrant health, and success in everything you dream of. <br /><br />
+                You deserve the world, and I hope to spend my days giving you a piece of it. Thank you for being you — wild, loving, and uniquely <strong>Bandriii</strong>. I love you more than words can hold. 🤍
+            </div>
+        </section>
+
+        <!-- ===== FUTURE TOGETHER ===== -->
+        <section class="glass-card">
+            <h2 style="font-size: 2.2rem; color: #6a3d34;">🤲 Future Together</h2>
+            <div class="section-divider"></div>
+            <div style="font-size: 1.1rem; line-height: 1.9; font-weight: 300; background: rgba(255,245,240,0.3); padding: 1.8rem; border-radius: 2.5rem;">
+                <p style="margin-bottom: 1.2rem;">
+                    With all my heart, I pray that if Allah has written it in our destiny, we will one day marry in the most beautiful, halal way. I promise to always respect you, cherish you, and stand by you as your partner in this life and the next.
+                </p>
+                <p style="font-style: italic; color: #7a4f44; font-size: 1.15rem;">
+                    “And We created you in pairs.” (Quran 78:8) — may we be among them. 🤍
+                </p>
+                <p style="margin-top: 1rem; font-weight: 400; color: #9a5a4a;">
+                    I look forward to the day we say “Qubool” and begin our forever. InshaAllah. 🤲
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== PROPOSAL ===== -->
+        <section class="glass-card" style="text-align: center;">
+            <h2 style="font-size: 2.2rem; color: #6a3d34;">💍 Proposal</h2>
+            <div class="section-divider" style="margin: 0.5rem auto 1.8rem;"></div>
+            <button id="proposalBtn" class="proposal-btn">💍 Will You Marry Me When the Time Is Right?</button>
+            <div id="proposal-feedback">
+                <span style="opacity: 0.5;">click the ring 💕</span>
+            </div>
+        </section>
+
+        <!-- ===== FINAL ===== -->
+        <section style="text-align: center; margin: 2.5rem 0 0.5rem;">
+            <div style="font-size: 2.8rem; font-family: 'Playfair Display', serif; color: #6a3d34; line-height: 1.3;">
+                Happy Birthday, My Bandriii ❤️
+            </div>
+            <div style="font-size: 2.2rem; font-family: 'Playfair Display', serif; color: #b46a5a; margin-top: 0.2rem; letter-spacing: 1px;">
+                Forever Yours, Zaheer 🤍
+            </div>
+            <div style="margin-top: 1.2rem; font-size: 1.3rem; color: #b27a6a; opacity: 0.7; letter-spacing: 4px;">✨ always & forever ✨</div>
+        </section>
+
+    </div>
+
+    <div class="footer-note">
+        🕊️ <span>Bandriii 🐒❤️</span> — my heart, my home.
+    </div>
+
+    <!-- Overlay -->
+    <div class="heart-reveal-overlay" id="heartRevealOverlay">
+        <div class="heart-reveal-card">
+            <div class="big-heart">🫀</div>
+            <h2>It's Mine Heart ❤️</h2>
+            <p>Bandr <span style="color:#b24a3a;">❤️</span> It's You</p>
+            <div style="margin-top: 0.5rem; font-size: 1.4rem; color: #7a4f44; font-style: italic;">— my Bandriii 🐒 —</div>
+            <button class="close-btn" id="closeRevealBtn">Close</button>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ===== PARTICLES =====
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+
+            function resizeCanvas() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            class HeartParticle {
+                constructor() { this.reset(); }
+                reset() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height * 1.2 - height * 0.1;
+                    this.size = Math.random() * 22 + 12;
+                    this.speedX = (Math.random() - 0.5) * 0.9;
+                    this.speedY = -Math.random() * 0.8 - 0.3;
+                    this.opacity = Math.random() * 0.5 + 0.15;
+                    this.rotation = Math.random() * 360;
+                    this.rotateSpeed = (Math.random() - 0.5) * 0.025;
+                    this.life = 1;
+                    this.decay = 0.0006 + Math.random() * 0.002;
+                    this.heartChar = ['❤️', '🩷', '♥️', '💕', '💗', '💖'][Math.floor(Math.random() * 6)];
+                }
+                update() {
+                    this.x += this.speedX + Math.sin(this.y * 0.008) * 0.25;
+                    this.y += this.speedY;
+                    this.rotation += this.rotateSpeed;
+                    this.life -= this.decay;
+                    if (this.life <= 0 || this.y < -50 || this.y > height + 50) {
+                        this.reset();
+                        this.y = height + 20 + Math.random() * 30;
+                        this.life = 0.8 + Math.random() * 0.3;
+                    }
+                }
+                draw() {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.rotation);
+                    ctx.font = `${this.size}px serif`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.globalAlpha = this.opacity * this.life;
+                    ctx.fillText(this.heartChar, 0, 0);
+                    ctx.restore();
+                }
+            }
+
+            for (let i = 0; i < 50; i++) {
+                const p = new HeartParticle();
+                p.y = Math.random() * height;
+                p.life = 0.5 + Math.random() * 0.5;
+                particles.push(p);
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, width, height);
+                for (let p of particles) { p.update();
+                    p.draw(); }
+                ctx.shadowBlur = 25;
+                ctx.shadowColor = '#f5c8b8';
+                for (let i = 0; i < 20; i++) {
+                    const x = (Math.sin(Date.now() * 0.001 + i * 2.1) * 0.5 + 0.5) * width;
+                    const y = (Math.cos(Date.now() * 0.0015 + i * 1.8) * 0.5 + 0.5) * height;
+                    ctx.beginPath();
+                    ctx.arc(x, y, 2 + Math.sin(Date.now() * 0.006 + i) * 1.2, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 215, 190, ${0.2 + Math.sin(Date.now() * 0.004 + i) * 0.1})`;
+                    ctx.shadowBlur = 30;
+                    ctx.fill();
+                }
+                ctx.shadowBlur = 0;
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+
+            // ===== COUNTDOWN (FIXED) =====
+            const TARGET = new Date(2026, 6, 29, 0, 0, 0).getTime(); // July 29, 2026
+            const MEET = new Date(2021, 10, 11).getTime();
+
+            const heroBirthday = document.getElementById('heroBirthday');
+            const heroCountdown = document.getElementById('heroCountdown');
+            const countdownDisplay = document.getElementById('countdownDisplay');
+            const daysSinceMeetEl = document.getElementById('daysSinceMeet');
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const diff = TARGET - now;
+
+                // Days since meet
+                const meetDiff = now - MEET;
+                const daysMeet = Math.floor(meetDiff / (1000 * 60 * 60 * 24));
+                daysSinceMeetEl.textContent = daysMeet >= 0 ? daysMeet : 0;
+
+                if (diff <= 0) {
+                    heroBirthday.classList.remove('hidden');
+                    heroCountdown.classList.add('hidden');
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const secs = Math.floor((diff % (1000 * 60)) / 1000);
+                countdownDisplay.textContent =
+                    `${days}d ${String(hours).padStart(2, '0')}h ${String(mins).padStart(2, '0')}m ${String(secs).padStart(2, '0')}s`;
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            // ===== HEART PUZZLE =====
+            const puzzleData = [
+                { letter: 'B', emoji: '❤️', color: '#ff6b6b' },
+                { letter: 'A', emoji: '🧡', color: '#ff9f43' },
+                { letter: 'N', emoji: '💛', color: '#feca57' },
+                { letter: 'D', emoji: '💚', color: '#55efc4' },
+                { letter: 'R', emoji: '💙', color: '#74b9ff' },
+                { letter: 'I', emoji: '💜', color: '#a29bfe' }
+            ];
+
+            const grid = document.getElementById('puzzleGrid');
+            const specialWrapper = document.getElementById('specialHeartWrapper');
+            const puzzleHint = document.getElementById('puzzleHint');
+            let flippedCount = 0;
+            const flippedState = new Array(puzzleData.length).fill(false);
+
+            puzzleData.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'heart-card';
+                card.dataset.index = index;
+                card.innerHTML = `
+                    <div class="heart-card-inner">
+                        <div class="heart-card-front" style="background: ${item.color}25; border-color: ${item.color}55;">
+                            ${item.emoji}
+                        </div>
+                        <div class="heart-card-back" style="background: ${item.color}35; border-color: ${item.color}55;">
+                            ${item.letter}
+                            <small>❤️</small>
+                        </div>
+                    </div>
+                `;
+                card.addEventListener('click', function(e) {
+                    if (flippedState[index]) return;
+                    flippedState[index] = true;
+                    this.classList.add('flipped');
+                    flippedCount++;
+                    if (flippedCount === puzzleData.length) {
+                        specialWrapper.classList.add('show');
+                        puzzleHint.textContent = '🫀 The special heart is yours! Tap it!';
+                        for (let i = 0; i < 30; i++) {
+                            setTimeout(() => {
+                                const p = new HeartParticle();
+                                p.x = Math.random() * width;
+                                p.y = height * 0.5 + Math.random() * 100;
+                                p.size = 20 + Math.random() * 30;
+                                p.speedY = -1.8 - Math.random() * 2;
+                                p.speedX = (Math.random() - 0.5) * 3;
+                                p.opacity = 0.9;
+                                p.life = 0.9;
+                                p.decay = 0.0015;
+                                particles.push(p);
+                            }, i * 60);
+                        }
+                    } else {
+                        puzzleHint.textContent =
+                            `Collected ${flippedCount} of ${puzzleData.length} hearts! Keep going!`;
+                    }
+                });
+                grid.appendChild(card);
+            });
+
+            document.getElementById('specialHeartBtn').addEventListener('click', function() {
+                document.getElementById('heartRevealOverlay').classList.add('open');
+                for (let i = 0; i < 40; i++) {
+                    setTimeout(() => {
+                        const p = new HeartParticle();
+                        p.x = width * 0.3 + Math.random() * width * 0.4;
+                        p.y = height * 0.3 + Math.random() * height * 0.4;
+                        p.size = 18 + Math.random() * 34;
+                        p.speedY = -2 - Math.random() * 3;
+                        p.speedX = (Math.random() - 0.5) * 4;
+                        p.opacity = 0.9;
+                        p.life = 0.9;
+                        p.decay = 0.002;
+                        particles.push(p);
+                    }, i * 40);
+                }
+            });
+
+            document.getElementById('closeRevealBtn').addEventListener('click', function() {
+                document.getElementById('heartRevealOverlay').classList.remove('open');
+            });
+            document.getElementById('heartRevealOverlay').addEventListener('click', function(e) {
+                if (e.target === this) this.classList.remove('open');
+            });
+
+            // ===== PROPOSAL =====
+            document.getElementById('proposalBtn').addEventListener('click', function() {
+                for (let i = 0; i < 40; i++) {
+                    setTimeout(() => {
+                        const p = new HeartParticle();
+                        p.x = Math.random() * width;
+                        p.y = height * 0.5 + Math.random() * 150;
+                        p.size = 18 + Math.random() * 32;
+                        p.speedY = -1.8 - Math.random() * 3;
+                        p.speedX = (Math.random() - 0.5) * 4;
+                        p.opacity = 0.9;
+                        p.life = 0.9;
+                        p.decay = 0.0015;
+                        particles.push(p);
+                    }, i * 50);
+                }
+                const fb = document.getElementById('proposal-feedback');
+                fb.innerHTML = '💖 InshaAllah... One Day, Forever Together. ❤️';
+                fb.style.background = 'rgba(255, 235, 225, 0.7)';
+                fb.style.borderColor = '#d48778';
+                fb.style.transform = 'scale(1.03)';
+                setTimeout(() => fb.style.transform = 'scale(1)', 350);
+            });
+
+        })();
+    </script>
+</body>
+</html>
